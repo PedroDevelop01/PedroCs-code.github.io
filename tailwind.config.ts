@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,7 +19,23 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'playfair': ['"Playfair Display"', 'serif'],
+				'roboto': ['Roboto', 'sans-serif'],
+			},
 			colors: {
+				'jungle': {
+					'dark': '#1a3c1a',
+					'medium': '#2e5a2e',
+					'light': '#84a98c',
+				},
+				'wood': {
+					'dark': '#5e3023',
+					'medium': '#8b4513',
+					'light': '#cd8c52',
+				},
+				'sand': '#e6c9a8',
+				'gold': '#d4af37',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -84,12 +101,32 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'leaf-sway': {
+					'0%, 100%': { transform: 'rotate(-5deg)' },
+					'50%': { transform: 'rotate(5deg)' },
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' },
+				},
+				'bounce-in': {
+					'0%': { transform: 'scale(0.8)', opacity: '0' },
+					'80%': { transform: 'scale(1.05)' },
+					'100%': { transform: 'scale(1)', opacity: '1' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'leaf-sway': 'leaf-sway 4s ease-in-out infinite',
+				'fade-in': 'fade-in 0.5s ease-in-out',
+				'bounce-in': 'bounce-in 0.5s ease-in-out',
+			},
+			backgroundImage: {
+				'jungle-pattern': "url('/bg-jungle.png')",
+				'wood-texture': "url('/bg-wood.png')",
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
